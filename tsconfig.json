@@ -1,11 +1,5 @@
 {  
-  "extends": "@tsconfig/node16/tsconfig.json",
-  "compilerOptions": {
-    "outDir": "dist",
-    "target": "ES2015",
-    "moduleResolution": "node"
-    
-  },
+  "extends": "@tsconfig/node18/tsconfig.json",
   "include": [
     "src"
   ],

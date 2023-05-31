@@ -1,7 +1,9 @@
-import { Lifetime, createContainer, InjectionMode } from 'awilix'
-import { UserService } from './modules';
+import { Lifetime, createContainer, InjectionMode, asClass } from 'awilix'
 import { Server } from './server';
+
+// Important to be loaded by awilix
 export * from './modules';
+export { Server }
 
 
 async function start() {
@@ -25,16 +27,9 @@ async function start() {
     }
   );
 
-  console.log('BOOTING...')
-  console.log(container.registrations)
-
-  const userService = container.resolve<UserService>('userService');
-  console.log(await userService.getUserPosts('doe-j'));
-
-
   const server = container.resolve<Server>('server');
   await server.bootstrap();
   await server.run();
 }
 
-start();
+export { start }
